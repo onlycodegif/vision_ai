@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vision AI System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Shim process.env for browser environments to prevent crashes
+      window.process = {
+        env: {
+          NODE_ENV: 'development',
+          // API_KEY will be injected by the environment or build tool
+          ...window.process?.env
+        }
+      };
+
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'vision-dark': '#0f172a',
+              'vision-panel': '#1e293b',
+              'vision-accent': '#3b82f6',
+              'vision-success': '#10b981',
+              'vision-warning': '#f59e0b',
+              'vision-error': '#ef4444',
+            },
+            fontFamily: {
+              mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #0f172a;
+        color: #e2e8f0;
+      }
+      /* Custom scrollbar for logs */
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+      .scan-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: rgba(59, 130, 246, 0.8);
+        box-shadow: 0 0 4px rgba(59, 130, 246, 0.8);
+        animation: scan 3s linear infinite;
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      @keyframes scan {
+        0% { top: 0%; }
+        100% { top: 100%; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.0/client",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

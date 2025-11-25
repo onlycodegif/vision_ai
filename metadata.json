@@ -1,0 +1,8 @@
+{
+  "name": "Vision AI: Interactive Perception",
+  "description": "A real-time interactive perception system integrating object recognition with natural language processing, inspired by the Vision AI research paper.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
